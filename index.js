@@ -4,6 +4,7 @@ import bodyParser from "body-parser"
 import studentRouter from "./routers/studentRouter.js"
 import userRouter from "./routers/userRouter.js"
 import jwt from "jsonwebtoken"
+import productRouter from "./routers/productRouter.js"
 
 const app = express()
 app.use(bodyParser.json())
@@ -53,18 +54,12 @@ mongoose.connect(connectionString).then(
 )
 
 
-app.use("/students", studentRouter)
-app.use("/users", userRouter)
-
+app.use("/api/students", studentRouter)
+app.use("/api/users", userRouter)
+app.use("/api/products", productRouter)
 
 
 app.listen(5000, ()=>{
     console.log("server started at port 5000")
 })
 
-app.delete("/", ()=>{
-    console.log("This is a delete request")
-})
-app.put("/", ()=>{
-    console.log("This is a put request")
-})
