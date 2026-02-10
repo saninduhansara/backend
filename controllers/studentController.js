@@ -1,5 +1,7 @@
 import Student from "../models/student.js"
 
+
+
 // export  function getStudents (req,res){
 //         Student.find().then(
 //             (students)=>{
