@@ -15,6 +15,7 @@ import Student from "../models/student.js"
 
     
 //     }
+//
 
 
 export async function getStudents(req, res){
