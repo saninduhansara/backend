@@ -5,6 +5,9 @@ import studentRouter from "./routers/studentRouter.js"
 import userRouter from "./routers/userRouter.js"
 import jwt from "jsonwebtoken"
 import productRouter from "./routers/productRouter.js"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const app = express()
 app.use(bodyParser.json())
@@ -15,7 +18,7 @@ app.use(
         if(value != null){
             const token = value.replace("Bearer ","")
             
-            jwt.verify(token,"cbc-6503",
+            jwt.verify(token,process.env.JWT_SECRET,
                 (err,decoded) => {
                     if(decoded ==null){
                         res.status(403).json({
@@ -35,7 +38,7 @@ app.use(
         
     }
 )
-const connectionString = "mongodb+srv://admin:1234@cluster0.kkp0udt.mongodb.net/?appName=Cluster0"
+const connectionString = process.env.MONGO_URI
 
 
 
