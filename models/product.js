@@ -29,9 +29,9 @@ const productSchema = new mongoose.Schema({
     },
 
     description : {
-        type : Number,
+        type : String,
         required : true,
-        default : 0
+        default : ""
     },
 
     isAvailable : {
