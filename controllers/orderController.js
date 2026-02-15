@@ -39,7 +39,7 @@ export async function createOrder(req,res){
                 return
             }
             items[i] = {
-                productId : item.productId,
+                productId : product.productId,
                 name : product.name,
                 image : product.images[0],
                 price : product.price,
